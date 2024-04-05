@@ -11,13 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v4
+    
     - name: Install the software
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
-
-    - name: Checkout repository
-      uses: actions/checkout@v2
 
     - name: Clone the project
       run: git clone https://github.com/username/repository.git
@@ -27,7 +26,6 @@ jobs:
       
     - name: Create a project build
       run: python app.py
-
     
     - name: Run unit tests
       run: python -m unittest
